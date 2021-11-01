@@ -1,0 +1,22 @@
+site_name: Saturn wiki
+theme:
+    name: material
+    palette:
+      primary: green
+      secondary: green
+
+
+
+
+
+
+nav:
+  - memes1: docpages/introduction.md
+  - memes2: docpages/test.md
+
+plugins:
+  - i18n:
+      default_language: en
+      languages:
+        en: English
+        pt: Portugues
