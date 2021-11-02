@@ -4,7 +4,15 @@ theme:
     palette:
       primary: green
       secondary: green
+    features:
+      - content.code.annotate 
 
+
+nav:
+  - Tasks:
+    - task: docpages/task/task.md
+  - Gobjects: 
+    - gobject: docpages/gobject/gobject.md 
 
 plugins:
   - i18n:
@@ -12,3 +20,9 @@ plugins:
       languages:
         en: English
         pt: Portugues
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
