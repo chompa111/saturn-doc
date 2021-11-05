@@ -2,15 +2,17 @@ site_name: Saturn wiki
 theme:
     name: material
     palette:
-      primary: green
-      secondary: green
+      primary: deep purple
+      accent: yellow
     features:
       - content.code.annotate 
 
 
 nav:
+  - Home : index.md
   - Tasks:
-    - task: docpages/task/task.md
+    - Task: docpages/task/task.md
+    - Parallel Task: docpages/task/paraleltask.md
   - Gobjects: 
     - gobject: docpages/gobject/gobject.md 
 

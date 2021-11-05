@@ -45,8 +45,11 @@ Task t2 = circle.changeColor(Color.red);
 Task paralelTaks = new ParalelTask(t1,t2);
 paralelTask.execute();
 ```
+> uma task paralela é encerrada quando todas as _subtasks_ são encerradas, em outras palavras a duração composição das tasks será igual a da maior task.
 
-as vezes gostariamos de juntar varias tasks, no entanto, para executar em sequencia mesmo. um dos motivos desejados pra fazer isso é para ter uma task complexa como
+Veja mais detalhes sobre as tasks paralelas [aqui](paraleltask.md)
+
+As vezes gostariamos de juntar varias tasks, no entanto, para executar em sequencia mesmo. um dos motivos desejados pra fazer isso é para ter uma task complexa como
 retorno de uma função, veja o exemplo;
 
 ``` java
