@@ -14,7 +14,7 @@
     
     
       
-        <title>Task - Saturn wiki</title>
+        <title>Parallel Task - Saturn wiki</title>
       
     
     
@@ -65,7 +65,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#task" class="md-skip">
+        <a href="#paralel-task" class="md-skip">
           Skip to content
         </a>
       
@@ -95,7 +95,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Task
+              Parallel Task
             
           </span>
         </div>
@@ -119,7 +119,7 @@
                 </li>
                 
                 <li class="md-select__item">
-                  <a href="../../../pt/docpages/task/task/" hreflang="pt" class="md-select__link">
+                  <a href="../../../pt/docpages/task/paraleltask/" hreflang="pt" class="md-select__link">
                     Portugues
                   </a>
                 </li>
@@ -207,6 +207,18 @@
             
   
   
+  
+    <li class="md-nav__item">
+      <a href="../task/" class="md-nav__link">
+        Task
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
     
   
   
@@ -219,12 +231,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Task
+          Parallel Task
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Task
+        Parallel Task
       </a>
       
         
@@ -242,35 +254,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#composicao-de-tasks" class="md-nav__link">
-    Composição de Tasks
-  </a>
-  
-    <nav class="md-nav" aria-label="Composição de Tasks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#e-se-quisessemos-executar-em-paralelo" class="md-nav__link">
-    E se quisessemos executar em paralelo?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#duracao" class="md-nav__link">
-    Duração
+  <a href="#construtor-com-lista" class="md-nav__link">
+    Construtor com lista
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entendendo-mais-a-fundo" class="md-nav__link">
-    Entendendo mais a fundo
+  <a href="#construtor-com-var-args" class="md-nav__link">
+    Construtor com var args
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizando-os-metodo-parallel-da-interface-task" class="md-nav__link">
+    Utilizando os metodo parallel() da interface Task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-pratico" class="md-nav__link">
+    Exemplo prático
   </a>
   
 </li>
@@ -279,18 +285,6 @@
   
 </nav>
       
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../paraleltask/" class="md-nav__link">
-        Parallel Task
-      </a>
     </li>
   
 
@@ -369,35 +363,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#composicao-de-tasks" class="md-nav__link">
-    Composição de Tasks
-  </a>
-  
-    <nav class="md-nav" aria-label="Composição de Tasks">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#e-se-quisessemos-executar-em-paralelo" class="md-nav__link">
-    E se quisessemos executar em paralelo?
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#duracao" class="md-nav__link">
-    Duração
+  <a href="#construtor-com-lista" class="md-nav__link">
+    Construtor com lista
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#entendendo-mais-a-fundo" class="md-nav__link">
-    Entendendo mais a fundo
+  <a href="#construtor-com-var-args" class="md-nav__link">
+    Construtor com var args
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilizando-os-metodo-parallel-da-interface-task" class="md-nav__link">
+    Utilizando os metodo parallel() da interface Task
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exemplo-pratico" class="md-nav__link">
+    Exemplo prático
   </a>
   
 </li>
@@ -415,66 +403,59 @@
               
                 
                 
-                <h1 id="task">Task</h1>
-<p>Quando temos uma animação no Saturno, como por exemplo: uma bolinha se movendo ou trocando de cor, temos uma task;
-<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">moveTask</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span> 
-<span class="c1">//mais um exemplo</span>
-<span class="n">Task</span> <span class="n">changeColorTask</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">yellow</span><span class="p">);</span> 
+                <h1 id="paralel-task">Paralel Task</h1>
+<p>As tasks paralelas foram construidas com a inteção de executar multiplos passos da sua animação simultaneamente.
+Internamente a task paralela tem uma lista de subtasks, e cada passo seu, é na verdade dar um passo em suas sub-taks.
+Existem alguns jeitos de construi-las como mostraremos a seguir:</p>
+<h3 id="construtor-com-lista">Construtor com lista</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="c1">//some task</span>
+<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="c1">//other task;</span>
+
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span> <span class="n">taskList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">taskList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">t1</span><span class="p">);</span>
+<span class="n">taskList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
+
+<span class="n">Task</span> <span class="n">paralelTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">taskList</span><span class="p">);</span>
 </code></pre></div>
-a task é responsavel por alterar os objetos na apresentação pouco a pouco a cada quadro da animação durante um determinado tempo.</p>
-<p>Para executa-la é necessario invocar o método <code>execute()</code> a partir da instancia da Task, como pode ser visto no exemplo a seguir:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">);</span>
-<span class="n">t</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span> 
+<h3 id="construtor-com-var-args">Construtor com var args</h3>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="c1">//some task</span>
+<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="c1">//other task;</span>
+
+<span class="n">Task</span> <span class="n">paralelTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">);</span>
 </code></pre></div>
 <blockquote>
-<p>ao invocar o metodo <code>execute()</code>  a execução permanecerá presa nesta linha até a conclusão da task.</p>
+<p>essa forma equivale a passar um vetor <code>Task[]</code></p>
 </blockquote>
-<hr />
-<h2 id="composicao-de-tasks">Composição de Tasks</h2>
-<p>Para falar sobre composição de Tasks vamos iluistrar o seguinte exemplo primeiro:
-<div class="highlight"><pre><span></span><code><span class="n">Gobject</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">CircleBuilder</span><span class="p">.</span><span class="na">aCircle</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
-<span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">);</span>
+<h3 id="utilizando-os-metodo-parallel-da-interface-task">Utilizando os metodo <code>parallel()</code> da interface Task</h3>
+<p>Essa forma pode vir bastante a calhar, reduzindo potencialmente a <em>verbozidade</em> do código, consiste em construir a task paralela a partir de outras tasks como no padrão <strong>builder</strong>, veja o exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="c1">//some task</span>
+<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="c1">//other task;</span>
 
-<span class="n">t1</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
-<span class="n">t2</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+<span class="n">Task</span> <span class="n">paralelTask</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="na">parallel</span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
 </code></pre></div>
-Nesse exemplo, temos um circulo e duas tasks: a de move-lo <code>200</code> unidades pra direita(<code>t1</code>) e de mudar sua cor pra vermelho(<code>t2</code>).
-Como vimos na sessão anterior ao chamarmos o metodo <code>execute()</code> a execução fica presa na linha até a conclusão da task.
-Desse modo, a taks <code>t2</code> só vai rodar depois de <code>t1</code>.</p>
-<h4 id="e-se-quisessemos-executar-em-paralelo">E se quisessemos executar em paralelo?</h4>
-<p>Nesse caso seria necessário compor as duas tasks em uma nova task que as execute em paralelo, veja a seguir:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Gobject</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">CircleBuilder</span><span class="p">.</span><span class="na">aCircle</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
-<span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">);</span>
+<p>Na maioria dos casos não queremos/precisamos armazenar referencias paras as partes da task paralela, escrevendo o código de maneira mais objetiva:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">paralelTask</span> <span class="o">=</span> <span class="n">gobject</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">).</span><span class="na">parallel</span><span class="p">(</span><span class="n">gobject</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">blue</span><span class="p">));</span>
+</code></pre></div>
+<p>Voce pode chamar quantas vezes quiser o metodo <code>parallel()</code> à partir de uma task (mesmo que seja um task paralela), isso vai ser equivalente ao metodo de contrução por lista ou varArgs com mais elementos, para ilustrar:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="c1">//some task</span>
+<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="c1">//other task;</span>
+<span class="n">Task</span> <span class="n">t3</span> <span class="o">=</span> <span class="c1">//one more task;</span>
 
-<span class="n">Task</span> <span class="n">paralelTaks</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">);</span>
-<span class="n">paralelTask</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
+<span class="c1">//1</span>
+<span class="n">Task</span> <span class="n">paralelTask</span> <span class="o">=</span> <span class="n">t1</span><span class="p">.</span><span class="na">parallel</span><span class="p">(</span><span class="n">t2</span><span class="p">).</span><span class="na">parallel</span><span class="p">(</span><span class="n">t3</span><span class="p">);</span> <span class="c1">// this can go on for ever</span>
+
+<span class="c1">//2</span>
+<span class="n">Task</span> <span class="n">equivalent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">t3</span><span class="p">);</span>
+
+<span class="c1">//3</span>
+<span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span> <span class="n">taskList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;</span><span class="p">();</span>
+<span class="n">taskList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">t1</span><span class="p">);</span>
+<span class="n">taskList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">t2</span><span class="p">);</span>
+<span class="n">taskList</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">t3</span><span class="p">);</span>
+
+<span class="n">Task</span> <span class="n">equivalent2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">taskList</span><span class="p">);</span>
 </code></pre></div>
-<blockquote>
-<p>uma task paralela é encerrada quando todas as <em>subtasks</em> são encerradas, em outras palavras a duração composição das tasks será igual a da maior task.</p>
-</blockquote>
-<p>Veja mais detalhes sobre as tasks paralelas <a href="../paraleltask/">aqui</a></p>
-<p>As vezes gostariamos de juntar varias tasks, no entanto, para executar em sequencia mesmo. um dos motivos desejados pra fazer isso é para ter uma task complexa como
-retorno de uma função, veja o exemplo;</p>
-<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="nf">moveAndThenChangeColor</span><span class="p">(</span><span class="n">Gobject</span> <span class="n">gobject</span><span class="p">){</span>
-    <span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">gobject</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">gobject</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">);</span>   
-    <span class="n">Task</span> <span class="n">sequenceTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SequenceTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">sequenceTask</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div>
-<hr />
-<h2 id="duracao">Duração</h2>
-<p>as taks sempre tem uma duração pra ocorrer, geralmente é possivel especificar a duração adicionando um parametro, se ele não for obrigatório ou fixo.</p>
-<p><div class="highlight"><pre><span></span><code><span class="kt">int</span> <span class="n">numFrames</span><span class="o">=</span><span class="mi">30</span><span class="p">;</span>
-<span class="n">Task</span> <span class="n">t</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">numFrames</span><span class="p">);</span> 
-</code></pre></div>
-se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> então passando <code>30</code> no argumento de duração, o movimento do circulo irá durar 1 segundo.</p>
-<p>Porém não é pratico ter que calcular quantidade  de quadros pra atingir a duração desejada. Para isso temos a função <code>seconds()</code> que leva em consideração o <em>framerate</em> da sua apresentação e calcula a quantidade de frames pra atingir o tempo desejado.</p>
-<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">seconds</span><span class="p">(</span><span class="mf">2.5</span><span class="p">));</span> <span class="c1">// 2.5 segundos </span>
-</code></pre></div>
-<h2 id="entendendo-mais-a-fundo">Entendendo mais a fundo</h2>
+<h2 id="exemplo-pratico">Exemplo prático</h2>
                 
               
               
@@ -494,7 +475,7 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+        <a href="../task/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Task" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -503,20 +484,20 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
               <span class="md-footer__direction">
                 Previous
               </span>
-              Home
+              Task
             </div>
           </div>
         </a>
       
       
         
-        <a href="../paraleltask/" class="md-footer__link md-footer__link--next" aria-label="Next: Parallel Task" rel="next">
+        <a href="../../gobject/gobject/" class="md-footer__link md-footer__link--next" aria-label="Next: gobject" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Parallel Task
+              gobject
             </div>
           </div>
           <div class="md-footer__button md-icon">
