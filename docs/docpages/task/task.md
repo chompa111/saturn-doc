@@ -37,7 +37,7 @@ Desse modo, a taks `t2` só vai rodar depois de `t1`.
 #### E se quisessemos executar em paralelo? 
 
 Nesse caso seria necessário compor as duas tasks em uma nova task que as execute em paralelo, veja a seguir:
-=== "Contrutor lista"
+=== "Construtor lista"
 	``` java
 	Gobject circle = CircleBuilder.aCircle().build();
 	Task t1 = circle.move(200,0);
@@ -74,7 +74,7 @@ Task moveAndThenChangeColor(Gobject gobject){
 podemos compor tasks em taks cada vez mais complexas veja o caso:
 
 
-=== "Contrutor"
+=== "Construtor"
 	``` java
 	Task complexTask(Task t1,Task t2,Task t3,Task t4,Task t5,Task t6){
 		Task parallelTask1 = new ParalelTask(t4,t5,t6);
@@ -119,8 +119,3 @@ Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 
 ## Entendendo mais a fundo
 
-??? success
-	igunitos.
-
-??? warning classes
-	pereira.
