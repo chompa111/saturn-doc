@@ -1,5 +1,6 @@
 # Task 
 
+
 Quando temos uma animação no Saturno, como por exemplo: uma bolinha se movendo ou trocando de cor, temos uma task;
 ``` java
 Task moveTask = circle.move(200,200); 
@@ -36,15 +37,24 @@ Desse modo, a taks `t2` só vai rodar depois de `t1`.
 #### E se quisessemos executar em paralelo? 
 
 Nesse caso seria necessário compor as duas tasks em uma nova task que as execute em paralelo, veja a seguir:
+=== "Contrutor lista"
+	``` java
+	Gobject circle = CircleBuilder.aCircle().build();
+	Task t1 = circle.move(200,0);
+	Task t2 = circle.changeColor(Color.red);
 
-``` java
-Gobject circle = CircleBuilder.aCircle().build();
-Task t1 = circle.move(200,0);
-Task t2 = circle.changeColor(Color.red);
+	Task paralelTaks = new ParalelTask(t1,t2);
+	paralelTask.execute();
+	```
+=== "Builder-like"
+	``` java
+	Gobject circle = CircleBuilder.aCircle().build();
+	Task t1 = circle.move(200,0);
+	Task t2 = circle.changeColor(Color.red);
 
-Task paralelTaks = new ParalelTask(t1,t2);
-paralelTask.execute();
-```
+	 t1.parallel(t2).execute();
+	```
+
 > uma task paralela é encerrada quando todas as _subtasks_ são encerradas, em outras palavras a duração composição das tasks será igual a da maior task.
 
 Veja mais detalhes sobre as tasks paralelas [aqui](paraleltask.md)
@@ -61,6 +71,26 @@ Task moveAndThenChangeColor(Gobject gobject){
 }
 ```
 
+podemos compor tasks em taks cada vez mais complexas veja o caso:
+
+
+=== "Contrutor"
+	``` java
+	Task complexTask(Task t1,Task t2,Task t3,Task t4,Task t5,Task t6){
+		Task parallelTask1 = new ParalelTask(t4,t5,t6);
+		Task sequenceTask = new SquenceTask(t1,t2);
+		Task parallelTask2 = new ParalelTask(sequenceTask,parallelTask1);
+		return paralelTaks2;
+	}
+	```
+=== "Builder-like"
+	``` java
+	Task complexTask(Task t1,Task t2,Task t3,Task t4,Task t5,Task t6){
+		return t1.andThen(t2).andThen(t3).parallel(t4.parallel(t5).parallel(t6));
+	}
+	```
+
+[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgIFNlcXVlbmNlVGFzayAtLT4gVGFzazFcblxuICAgVGFzazEgLS0-IFRhc2syXG4gICBUYXNrMiAtLT4gVGFzazNcblxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNFxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNVxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNlxuXG4gICBwYXJhbGxlbFRhc2syIC0tPiBTZXF1ZW5jZVRhc2sgXG4gICBwYXJhbGxlbFRhc2syIC0tPiBQYXJhbGxlbFRhc2tcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkYXJrIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)](https://mermaid.live/edit#eyJjb2RlIjoiZ3JhcGggVERcbiAgIFNlcXVlbmNlVGFzayAtLT4gVGFzazFcblxuICAgVGFzazEgLS0-IFRhc2syXG4gICBUYXNrMiAtLT4gVGFzazNcblxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNFxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNVxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNlxuXG4gICBwYXJhbGxlbFRhc2syIC0tPiBTZXF1ZW5jZVRhc2sgXG4gICBwYXJhbGxlbFRhc2syIC0tPiBQYXJhbGxlbFRhc2tcbiIsIm1lcm1haWQiOiJ7XG4gIFwidGhlbWVcIjogXCJkYXJrXCJcbn0iLCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)
 
 
 ---
@@ -88,3 +118,9 @@ Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 
 
 ## Entendendo mais a fundo
+
+??? success
+	igunitos.
+
+??? warning classes
+	pereira.

@@ -6,6 +6,7 @@ theme:
       accent: yellow
     features:
       - content.code.annotate 
+      - content.tabs.link
 
 
 nav:
@@ -28,3 +29,6 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.superfences
   - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.details

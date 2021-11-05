@@ -75,3 +75,7 @@ Task equivalent2 = new ParalelTask(taskList);
 ```
 
 ## Exemplo prático
+
+[=0%]{: .thin}
+[=5%]{: .thin}
+[=25%]{: .thin}
