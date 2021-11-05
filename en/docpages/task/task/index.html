@@ -444,6 +444,7 @@ Como vimos na sessão anterior ao chamarmos o metodo <code>execute()</code> a ex
 Desse modo, a taks <code>t2</code> só vai rodar depois de <code>t1</code>.</p>
 <h4 id="e-se-quisessemos-executar-em-paralelo">E se quisessemos executar em paralelo?</h4>
 <p>Nesse caso seria necessário compor as duas tasks em uma nova task que as execute em paralelo, veja a seguir:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Contrutor lista</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">Gobject</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">CircleBuilder</span><span class="p">.</span><span class="na">aCircle</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
 <span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
 <span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">);</span>
@@ -451,6 +452,16 @@ Desse modo, a taks <code>t2</code> só vai rodar depois de <code>t1</code>.</p>
 <span class="n">Task</span> <span class="n">paralelTaks</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">);</span>
 <span class="n">paralelTask</span><span class="p">.</span><span class="na">execute</span><span class="p">();</span>
 </code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Builder-like</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">Gobject</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">CircleBuilder</span><span class="p">.</span><span class="na">aCircle</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
+<span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">);</span>
+
+ <span class="n">t1</span><span class="p">.</span><span class="na">parallel</span><span class="p">(</span><span class="n">t2</span><span class="p">).</span><span class="na">execute</span><span class="p">();</span>
+</code></pre></div>
+</div>
+</div>
 <blockquote>
 <p>uma task paralela é encerrada quando todas as <em>subtasks</em> são encerradas, em outras palavras a duração composição das tasks será igual a da maior task.</p>
 </blockquote>
@@ -464,6 +475,24 @@ retorno de uma função, veja o exemplo;</p>
     <span class="k">return</span> <span class="n">sequenceTask</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
+<p>podemos compor tasks em taks cada vez mais complexas veja o caso:</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Contrutor</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="nf">complexTask</span><span class="p">(</span><span class="n">Task</span> <span class="n">t1</span><span class="p">,</span><span class="n">Task</span> <span class="n">t2</span><span class="p">,</span><span class="n">Task</span> <span class="n">t3</span><span class="p">,</span><span class="n">Task</span> <span class="n">t4</span><span class="p">,</span><span class="n">Task</span> <span class="n">t5</span><span class="p">,</span><span class="n">Task</span> <span class="n">t6</span><span class="p">){</span>
+    <span class="n">Task</span> <span class="n">parallelTask1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">t4</span><span class="p">,</span><span class="n">t5</span><span class="p">,</span><span class="n">t6</span><span class="p">);</span>
+    <span class="n">Task</span> <span class="n">sequenceTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SquenceTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">);</span>
+    <span class="n">Task</span> <span class="n">parallelTask2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">sequenceTask</span><span class="p">,</span><span class="n">parallelTask1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">paralelTaks2</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Builder-like</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="nf">complexTask</span><span class="p">(</span><span class="n">Task</span> <span class="n">t1</span><span class="p">,</span><span class="n">Task</span> <span class="n">t2</span><span class="p">,</span><span class="n">Task</span> <span class="n">t3</span><span class="p">,</span><span class="n">Task</span> <span class="n">t4</span><span class="p">,</span><span class="n">Task</span> <span class="n">t5</span><span class="p">,</span><span class="n">Task</span> <span class="n">t6</span><span class="p">){</span>
+    <span class="k">return</span> <span class="n">t1</span><span class="p">.</span><span class="na">andThen</span><span class="p">(</span><span class="n">t2</span><span class="p">).</span><span class="na">andThen</span><span class="p">(</span><span class="n">t3</span><span class="p">).</span><span class="na">parallel</span><span class="p">(</span><span class="n">t4</span><span class="p">.</span><span class="na">parallel</span><span class="p">(</span><span class="n">t5</span><span class="p">).</span><span class="na">parallel</span><span class="p">(</span><span class="n">t6</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+<p><a href="https://mermaid.live/edit#eyJjb2RlIjoiZ3JhcGggVERcbiAgIFNlcXVlbmNlVGFzayAtLT4gVGFzazFcblxuICAgVGFzazEgLS0-IFRhc2syXG4gICBUYXNrMiAtLT4gVGFzazNcblxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNFxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNVxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNlxuXG4gICBwYXJhbGxlbFRhc2syIC0tPiBTZXF1ZW5jZVRhc2sgXG4gICBwYXJhbGxlbFRhc2syIC0tPiBQYXJhbGxlbFRhc2tcbiIsIm1lcm1haWQiOiJ7XG4gIFwidGhlbWVcIjogXCJkYXJrXCJcbn0iLCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9"><img alt="" src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcbiAgIFNlcXVlbmNlVGFzayAtLT4gVGFzazFcblxuICAgVGFzazEgLS0-IFRhc2syXG4gICBUYXNrMiAtLT4gVGFzazNcblxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNFxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNVxuICAgUGFyYWxsZWxUYXNrIC0tPiBUYXNrNlxuXG4gICBwYXJhbGxlbFRhc2syIC0tPiBTZXF1ZW5jZVRhc2sgXG4gICBwYXJhbGxlbFRhc2syIC0tPiBQYXJhbGxlbFRhc2tcbiIsIm1lcm1haWQiOnsidGhlbWUiOiJkYXJrIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0" /></a></p>
 <hr />
 <h2 id="duracao">Duração</h2>
 <p>as taks sempre tem uma duração pra ocorrer, geralmente é possivel especificar a duração adicionando um parametro, se ele não for obrigatório ou fixo.</p>
@@ -475,6 +504,10 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
 <div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">seconds</span><span class="p">(</span><span class="mf">2.5</span><span class="p">));</span> <span class="c1">// 2.5 segundos </span>
 </code></pre></div>
 <h2 id="entendendo-mais-a-fundo">Entendendo mais a fundo</h2>
+<details class="success"><summary>Success</summary><p>igunitos.</p>
+</details>
+<details class="warning classes"><summary>Warning</summary><p>pereira.</p>
+</details>
                 
               
               
@@ -545,7 +578,7 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["content.code.annotate", "content.tabs.link"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.709b4209.min.js", "version": null}</script>
     
     
       <script src="../../../../assets/javascripts/bundle.2b46852b.min.js"></script>
