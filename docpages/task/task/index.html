@@ -444,7 +444,7 @@ Como vimos na sessão anterior ao chamarmos o metodo <code>execute()</code> a ex
 Desse modo, a taks <code>t2</code> só vai rodar depois de <code>t1</code>.</p>
 <h4 id="e-se-quisessemos-executar-em-paralelo">E se quisessemos executar em paralelo?</h4>
 <p>Nesse caso seria necessário compor as duas tasks em uma nova task que as execute em paralelo, veja a seguir:</p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Contrutor lista</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Construtor lista</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">Gobject</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">CircleBuilder</span><span class="p">.</span><span class="na">aCircle</span><span class="p">().</span><span class="na">build</span><span class="p">();</span>
 <span class="n">Task</span> <span class="n">t1</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
 <span class="n">Task</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">changeColor</span><span class="p">(</span><span class="n">Color</span><span class="p">.</span><span class="na">red</span><span class="p">);</span>
@@ -476,7 +476,7 @@ retorno de uma função, veja o exemplo;</p>
 <span class="p">}</span>
 </code></pre></div>
 <p>podemos compor tasks em taks cada vez mais complexas veja o caso:</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Contrutor</label><div class="tabbed-content">
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Construtor</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="nf">complexTask</span><span class="p">(</span><span class="n">Task</span> <span class="n">t1</span><span class="p">,</span><span class="n">Task</span> <span class="n">t2</span><span class="p">,</span><span class="n">Task</span> <span class="n">t3</span><span class="p">,</span><span class="n">Task</span> <span class="n">t4</span><span class="p">,</span><span class="n">Task</span> <span class="n">t5</span><span class="p">,</span><span class="n">Task</span> <span class="n">t6</span><span class="p">){</span>
     <span class="n">Task</span> <span class="n">parallelTask1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ParalelTask</span><span class="p">(</span><span class="n">t4</span><span class="p">,</span><span class="n">t5</span><span class="p">,</span><span class="n">t6</span><span class="p">);</span>
     <span class="n">Task</span> <span class="n">sequenceTask</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SquenceTask</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">);</span>
@@ -504,10 +504,6 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
 <div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">seconds</span><span class="p">(</span><span class="mf">2.5</span><span class="p">));</span> <span class="c1">// 2.5 segundos </span>
 </code></pre></div>
 <h2 id="entendendo-mais-a-fundo">Entendendo mais a fundo</h2>
-<details class="success"><summary>Success</summary><p>igunitos.</p>
-</details>
-<details class="warning classes"><summary>Warning</summary><p>pereira.</p>
-</details>
                 
               
               
