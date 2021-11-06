@@ -7,6 +7,8 @@ theme:
     features:
       - content.code.annotate 
       - content.tabs.link
+      - search.suggest
+    logo: https://cdn.discordapp.com/attachments/534768096830029825/906337841003499520/ezgif.com-gif-maker_3.gif
 
 
 nav:
@@ -23,6 +25,7 @@ plugins:
       languages:
         en: English
         pt: Portugues
+  - search
 
 markdown_extensions:
   - pymdownx.highlight
@@ -32,3 +35,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed
   - pymdownx.details
+  - attr_list
+  - md_in_html
+
+
+extra_css:
+  - stylesheets/extra.css

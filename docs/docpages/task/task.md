@@ -108,8 +108,18 @@ se sua apresentação estiver numa taxa de `30 quadros/segundo` então passando 
 Porém não é pratico ter que calcular quantidade  de quadros pra atingir a duração desejada. Para isso temos a função `seconds()` que leva em consideração o *framerate* da sua apresentação e calcula a quantidade de frames pra atingir o tempo desejado.
 
 ``` java
-Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos 
+Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 ```
+
+``` yaml
+theme:
+  features:
+    - content.code.annotate # (1)
+```
+
+1.  :man_raising_hand: I'm a code annotation! I can contain `code`, __formatted
+    text__, images, ... basically anything that can be expressed in Markdown.
+
 
 
 

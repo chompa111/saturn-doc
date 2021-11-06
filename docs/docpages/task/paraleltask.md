@@ -76,6 +76,35 @@ Task equivalent2 = new ParalelTask(taskList);
 
 ## Exemplo prático
 
-[=0%]{: .thin}
-[=5%]{: .thin}
-[=25%]{: .thin}
+vamos mostrar um exemplo simples de duas tasks compostas em paralelo, o exemplo vai em dois circulos, um oscilando sua posição no eixo horizontal, e o outro na vertical.
+os dois movimentos vão acontecer em paralelo, dai o motivo do exemplo, veja o código:
+
+````java
+
+  @Override
+    protected void buildPresentation() {
+
+        Circle circle1 = CircleBuilder.aCircle()
+                .withCenter(100, 250)
+                .withColor(Color.red)
+                .build();
+
+        Circle circle2 = CircleBuilder.aCircle()
+                .withCenter(400, 100)
+                .withColor(Color.blue)
+                .build();
+
+        add(circle1);
+        add(circle2);
+
+        var task1 = circle1.move(300,0).andThen(circle1.move(-300,0)).repeat(5);
+        var task2 = circle2.move(0,300).andThen(circle2.move(0,-300)).repeat(5);
+
+        task1.parallel(task2).execute();
+
+    }
+
+````
+
+
+![bolinha](https://cdn.discordapp.com/attachments/534768096830029825/906315475980542022/paralelGIF.gif)
