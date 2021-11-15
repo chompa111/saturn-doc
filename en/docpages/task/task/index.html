@@ -302,12 +302,18 @@
     Duração
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entendendo-mais-a-fundo" class="md-nav__link">
-    Entendendo mais a fundo
+    <nav class="md-nav" aria-label="Duração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zona-de-codigo-interativa" class="md-nav__link">
+    zona de código interativa:
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -429,12 +435,18 @@
     Duração
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#entendendo-mais-a-fundo" class="md-nav__link">
-    Entendendo mais a fundo
+    <nav class="md-nav" aria-label="Duração">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#zona-de-codigo-interativa" class="md-nav__link">
+    zona de código interativa:
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -539,7 +551,134 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
 <p>Porém não é pratico ter que calcular quantidade  de quadros pra atingir a duração desejada. Para isso temos a função <code>seconds()</code> que leva em consideração o <em>framerate</em> da sua apresentação e calcula a quantidade de frames pra atingir o tempo desejado.</p>
 <div class="highlight"><pre><span></span><code><span class="n">Task</span> <span class="n">t</span> <span class="o">=</span> <span class="n">circle</span><span class="p">.</span><span class="na">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="n">seconds</span><span class="p">(</span><span class="mf">2.5</span><span class="p">));</span> <span class="c1">// 2.5 segundos</span>
 </code></pre></div>
-<h2 id="entendendo-mais-a-fundo">Entendendo mais a fundo</h2>
+<!--
+## Entendendo mais a fundo
+<html>
+<body>
+
+
+
+<textarea id="editing" name="editing" spellcheck="false"
+          rows="10" cols="80">
+var bolinha = CircleBuilder.aCircle()
+                .withColor(Color.red)
+                .build();
+
+add(bolinha);
+
+
+
+</textarea>
+
+
+
+
+
+
+
+
+
+<div id="demo">
+<button type="button" onclick="loadXMLDoc()">>click here to build<</button>
+</div>
+
+<div id="divona">
+
+</div>
+
+<div id="imgHolder">
+
+</div>
+
+<script>
+function loadXMLDoc() {
+ var code=document.getElementById("editing").value;
+ var img = document.createElement('img'); 
+    img.src = 'http://localhost:8080/pepe/image-manual-response?content='+code; 
+    document.getElementById('imgHolder').appendChild(img);
+}
+</script>
+
+</body>
+</html>
+
+-->
+
+<h3 id="zona-de-codigo-interativa">zona de código interativa:</h3>
+<p><html lang="en"></p>
+<body>
+
+<style>
+.button {
+  background-color: #7E56C2; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {border-radius: 2px;}
+.button2 {border-radius: 4px;}
+.button3 {border-radius: 8px;}
+.button4 {border-radius: 12px;}
+.button5 {border-radius: 50%;}
+</style>
+
+<div id="editor">Circle circle = CircleBuilder.aCircle()
+                .withCenter(100, 250)
+                .withColor(Color.red)
+                .build();
+
+ add(circle);
+</div>
+
+<script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/chaos");
+    editor.session.setMode("ace/mode/java");
+
+    editor.setOptions({
+    maxLines: 15,
+    minLines: 8,
+    fontSize: 15
+});
+
+</script>
+<br/>
+
+<div id="demo">
+<button type="button" class="button button4" onclick="loadXMLDoc()">Click to build</button>
+
+</div>
+<br/>
+<div id="imgHolder">
+
+</div>
+
+<script>
+function loadXMLDoc() {
+var gif= document.getElementById("gif_compilado");
+if(gif!=null){
+    gif.remove();
+}
+
+ var editor=ace.edit("editor");
+ var code=editor.getValue();
+  var img = document.createElement('img'); 
+   img.src = 'https://stark-woodland-13363.herokuapp.com/pepe/image-manual-response?content='+code; 
+   img.setAttribute("id","gif_compilado");
+    document.getElementById('imgHolder').appendChild(img);
+}
+</script>
+
+</body>
+<p></html></p>
                 
               
               
@@ -614,6 +753,10 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
     
     
       <script src="../../../../assets/javascripts/bundle.2b46852b.min.js"></script>
+      
+        <script src="../../../../javascripts/extra.js"></script>
+      
+        <script src="../../../../javascripts/ace.js"></script>
       
     
   </body>
