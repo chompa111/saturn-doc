@@ -9,7 +9,7 @@ theme:
       - content.tabs.link
       - search.suggest
     logo: https://cdn.discordapp.com/attachments/534768096830029825/906337841003499520/ezgif.com-gif-maker_3.gif
-
+    
 
 nav:
   - Home : index.md
@@ -41,3 +41,7 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+  - javascripts/ace.js
