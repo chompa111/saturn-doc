@@ -1,5 +1,6 @@
 <html lang="en">
 <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src='../../../javascripts/codeblock.js'></script>
 </html>
 
 # Task 
@@ -115,46 +116,12 @@ Porém não é pratico ter que calcular quantidade  de quadros pra atingir a dur
 Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 ```
 
-
-
-### EX1:
-
-
-<html lang="en">
-<div id="divitest">	
-</div>
-<script src='../../../javascripts/codeblock.js'></script>
-<script >
-	createCodeBlock('divitest','3',		
-`Circle circle1 = CircleBuilder.aCircle()
-        .withCenter(100, 250)
-        .withColor(Color.red)
-        .build();
-
-Circle circle2 = CircleBuilder.aCircle()
-        .withCenter(400, 100)
-        .withColor(Color.blue)
-        .build();
-
-add(circle1);
-add(circle2);
-
-var task1 = circle1.move(300,0).andThen(circle1.move(-300,0)).repeat(5);
-var task2 = circle2.move(0,300).andThen(circle2.move(0,-300)).repeat(5);
-
-task1.parallel(task2).execute();`
-);
-</script>
-
-</html>
-
-### EX2:
+### Zona de código livre:
 
 
 <html lang="en">
 <div id="divitest2">	
 </div>
-<script src='../../../javascripts/codeblock.js'></script>
 <script >
 	createCodeBlock('divitest2','4');
 </script>
