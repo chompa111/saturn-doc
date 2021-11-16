@@ -33,7 +33,7 @@ function createCodeBlock(father,key,code){
 	
 	var logic = document.createElement('script');
 	logic.setAttribute('id','logicscript');
-	logic.innerHTML='function leavebtn_'+key+'(){document.getElementById("divbuttonloading'+key+'").classList.toggle(\'running\');}  function getSaturnGif_'+key+'() {var gif= document.getElementById("gif_compilado'+key+'");if(gif!=null){gif.remove();}var editor=ace.edit("editor'+key+'");var code=editor.getValue();var img = document.createElement(\'img\'); img.src = \'https://stark-woodland-13363.herokuapp.com/pepe/image-manual-response?content=\'+code;img.setAttribute("id","gif_compilado'+key+'");img.setAttribute("onload","leavebtn_'+key+'()");img.setAttribute("width","350");document.getElementById(\'imgHolder'+key+'\').appendChild(img);console.log(\'gif chegou\');}'
+	logic.innerHTML='function leavebtn_'+key+'(){document.getElementById("divbuttonloading'+key+'").classList.toggle(\'running\');}  function getSaturnGif_'+key+'() {var gif= document.getElementById("gif_compilado'+key+'");if(gif!=null){gif.remove();}var editor=ace.edit("editor'+key+'");var code=encodeURIComponent(editor.getValue());var img = document.createElement(\'img\'); img.src = \'https://stark-woodland-13363.herokuapp.com/pepe/image-manual-response?content=\'+code;img.setAttribute("id","gif_compilado'+key+'");img.setAttribute("onload","leavebtn_'+key+'()");img.setAttribute("width","350");document.getElementById(\'imgHolder'+key+'\').appendChild(img);console.log(\'gif chegou\');}'
 	container.appendChild(logic);
 
 	container.appendChild(document.createElement('br'));
