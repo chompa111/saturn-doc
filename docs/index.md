@@ -18,6 +18,7 @@ Fique à vontade para ***alterar*** e rodar os exemplos encontrados nas caixas *
 <html lang="en">
 <div id="divcode1">    
 </div>
+<script src='../../../javascripts/codeblock.js'></script>
 <script >
     createCodeBlock('divcode1','1',
 `Circle circle = CircleBuilder.aCircle()
@@ -43,6 +44,7 @@ são criadas por tanto, 100 [tasks](docpages/task/task.md) são criadas, uma par
 <html lang="en">
 <div id="divcode2">    
 </div>
+<script src='../../../javascripts/codeblock.js'></script>
 <script >
     createCodeBlock('divcode2','2',
 `for (int i = 0; i < 100; i++) {
