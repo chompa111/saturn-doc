@@ -1,0 +1,76 @@
+<html lang="en">
+
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/loadingio/loading.css@v2.0.0/dist/loading.min.css"/>
+<link
+  rel="stylesheet" type="text/css"
+  href="//cdn.jsdelivr.net/gh/loadingio/ldbutton@v1.0.1/dist/ldbtn.min.css"
+/>
+<div id="editor">Circle circle = CircleBuilder.aCircle()
+                .withCenter(100, 250)
+                .withColor(Color.red)
+                .build();
+ 
+ add(circle);
+</div>
+    
+<script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/chaos");
+    editor.session.setMode("ace/mode/java");
+
+    editor.setOptions({
+    maxLines: 15,
+    minLines: 8,
+    fontSize: 15
+});
+
+</script>
+<br/>
+
+<div id="demo">
+
+
+<div class="btn btn-primary ld-ext-right" id="divbuttonloading"
+onclick="this.classList.toggle('running');loadXMLDoc();">
+  Click to build
+  <div class="ld ld-ring ld-spin"></div>
+</div>
+
+</div>
+<br/>
+<div id="imgHolder">
+	
+</div>
+
+<script>
+function changebool(){
+	document.getElementById("divbuttonloading").classList.toggle('running');
+}
+
+function loadXMLDoc() {
+var gif= document.getElementById("gif_compilado");
+if(gif!=null){
+	gif.remove();
+}
+
+
+
+ var editor=ace.edit("editor");
+ var code=editor.getValue();
+  var img = document.createElement('img'); 
+   img.src = 'https://stark-woodland-13363.herokuapp.com/pepe/image-manual-response?content='+code; 
+   img.setAttribute("id","gif_compilado");
+   img.setAttribute("onload","changebool()");
+   img.setAttribute("width","350");
+   
+	document.getElementById('imgHolder').appendChild(img);
+	
+	console.log('gif chegou')
+}
+</script>
+
+</body>
+</html>
