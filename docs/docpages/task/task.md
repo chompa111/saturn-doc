@@ -1,6 +1,5 @@
 <html lang="en">
 <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
-<script src='../../../javascripts/codeblock.js'></script>
 </html>
 
 # Task 
@@ -122,6 +121,7 @@ Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 <html lang="en">
 <div id="divitest2">	
 </div>
+<script src='../../../javascripts/codeblock.js'></script>
 <script >
 	createCodeBlock('divitest2','4');
 </script>
