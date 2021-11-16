@@ -123,7 +123,7 @@ Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 <html lang="en">
 <div id="divitest">	
 </div>
-<script src='javascripts/codeblock.js'></script>
+<script src='../../../javascripts/codeblock.js'></script>
 <script >
 	createCodeBlock('divitest','3',		
 `Circle circle1 = CircleBuilder.aCircle()
@@ -154,7 +154,7 @@ task1.parallel(task2).execute();`
 <html lang="en">
 <div id="divitest2">	
 </div>
-<script src='javascripts/codeblock.js'></script>
+<script src='../../../javascripts/codeblock.js'></script>
 <script >
 	createCodeBlock('divitest2','4');
 </script>
