@@ -1,3 +1,7 @@
+<html lang="en">
+<script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+</html>
+
 # Task 
 
 
@@ -111,135 +115,52 @@ Porém não é pratico ter que calcular quantidade  de quadros pra atingir a dur
 Task t = circle.move(200,200,seconds(2.5)); // 2.5 segundos
 ```
 
-<!--
-## Entendendo mais a fundo
-<html>
-<body>
 
 
-
-<textarea id="editing" name="editing" spellcheck="false"
-          rows="10" cols="80">
-var bolinha = CircleBuilder.aCircle()
-                .withColor(Color.red)
-                .build();
-
-add(bolinha);
-
-
-
-</textarea>
-
-
-
-
-
-
-
-
-
-<div id="demo">
-<button type="button" onclick="loadXMLDoc()">>click here to build<</button>
-</div>
-
-<div id="divona">
-	
-</div>
-
-<div id="imgHolder">
-	
-</div>
-
-<script>
-function loadXMLDoc() {
- var code=document.getElementById("editing").value;
- var img = document.createElement('img'); 
-    img.src = 'http://localhost:8080/pepe/image-manual-response?content='+code; 
-	document.getElementById('imgHolder').appendChild(img);
-}
-</script>
-
-</body>
-</html>
-
--->
-
-### zona de código interativa:
+### EX1:
 
 
 <html lang="en">
-
-<body>
-
-<style>
-.button {
-  background-color: #7E56C2; /* Green */
-  border: none;
-  color: white;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 22px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.button1 {border-radius: 2px;}
-.button2 {border-radius: 4px;}
-.button3 {border-radius: 8px;}
-.button4 {border-radius: 12px;}
-.button5 {border-radius: 50%;}
-</style>
-
-<div id="editor">Circle circle = CircleBuilder.aCircle()
-                .withCenter(100, 250)
-                .withColor(Color.red)
-                .build();
- 
- add(circle);
+<div id="divitest">	
 </div>
-    
-<script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
-<script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/chaos");
-    editor.session.setMode("ace/mode/java");
+<script src='/javascripts/codeBlock.js'></script>
+<script >
+	createCodeBlock('divitest','3',		
+`Circle circle1 = CircleBuilder.aCircle()
+        .withCenter(100, 250)
+        .withColor(Color.red)
+        .build();
 
-    editor.setOptions({
-    maxLines: 15,
-    minLines: 8,
-    fontSize: 15
-});
+Circle circle2 = CircleBuilder.aCircle()
+        .withCenter(400, 100)
+        .withColor(Color.blue)
+        .build();
 
-</script>
-<br/>
+add(circle1);
+add(circle2);
 
-<div id="demo">
-<button type="button" class="button button4" onclick="loadXMLDoc()">Click to build</button>
+var task1 = circle1.move(300,0).andThen(circle1.move(-300,0)).repeat(5);
+var task2 = circle2.move(0,300).andThen(circle2.move(0,-300)).repeat(5);
 
-</div>
-<br/>
-<div id="imgHolder">
-	
-</div>
-
-<script>
-function loadXMLDoc() {
-var gif= document.getElementById("gif_compilado");
-if(gif!=null){
-	gif.remove();
-}
-
- var editor=ace.edit("editor");
- var code=editor.getValue();
-  var img = document.createElement('img'); 
-   img.src = 'https://stark-woodland-13363.herokuapp.com/pepe/image-manual-response?content='+code; 
-   img.setAttribute("id","gif_compilado");
-	document.getElementById('imgHolder').appendChild(img);
-}
+task1.parallel(task2).execute();`
+);
 </script>
 
-</body>
 </html>
+
+### EX2:
+
+
+<html lang="en">
+<div id="divitest2">	
+</div>
+<script src='/javascripts/codeBlock.js'></script>
+<script >
+	createCodeBlock('divitest2','4');
+</script>
+
+</html>
+
+
+
 

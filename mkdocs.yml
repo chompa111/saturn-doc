@@ -43,5 +43,5 @@ extra_css:
   - stylesheets/extra.css
 
 extra_javascript:
-  - javascripts/extra.js
   - javascripts/ace.js
+  - javascripts/codeblock.js
