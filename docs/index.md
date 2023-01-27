@@ -1,7 +1,11 @@
 <html lang="en">
-<script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://pagecdn.io/lib/ace/1.4.13/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ext-language_tools.min.js" integrity="sha512-S7Whi8oQAQu/MK6AhBWufIJIyOvqORj+/1YDM9MaHeRalsZjzyYS7Usk4fsh+6J77PUhuk5v/BxaMDXRdWd1KA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src='../../../javascripts/codeblock.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.13/ext-linking.min.js" integrity="sha512-SIMZbq//6FiUxIhunj+k1uNcopIj6avHr0da/zFETvL/yeIBK1baCoSYXr09LzPpl0SNnLM0Xsqedwf2UPZbqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </html>
+
 
 
 
@@ -67,6 +71,10 @@ são criadas por tanto, 100 [tasks](docpages/task/task.md) são criadas, uma par
 </script>
 
 </html>
+
+
+
+
 
 
 

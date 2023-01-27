@@ -20,12 +20,16 @@ nav:
     - gobject: docpages/gobject/gobject.md 
 
 plugins:
+  - snippet:
+        base_path: docs
+
   - i18n:
       default_language: en
       languages:
         en: English
         pt: Portugues
   - search
+
 
 markdown_extensions:
   - pymdownx.highlight
@@ -45,3 +49,6 @@ extra_css:
 extra_javascript:
   - javascripts/ace.js
   - javascripts/codeblock.js
+ 
+repo_url: https://github.com/chompa111/saturnGL
+

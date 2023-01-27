@@ -111,11 +111,12 @@ os dois movimentos vão acontecer em paralelo, dai o motivo do exemplo, veja o c
 
 ````
 
-### Teste voce mesmo este exemplo !
+### Teste você mesmo este exemplo!
 
 <html lang="en">
 <div id="divitest"> 
 </div>
+<script src='../../../javascripts/codeblock.js'></script>
 <script >
     createCodeBlock('divitest','3',     
 `Circle circle1 = CircleBuilder.aCircle()
