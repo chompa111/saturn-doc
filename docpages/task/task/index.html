@@ -168,6 +168,19 @@
 </div>
     
     
+      <div class="md-header__source">
+        
+<a href="https://github.com/chompa111/saturnGL/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
   </nav>
 </header>
     
@@ -196,6 +209,19 @@
     </a>
     Saturn wiki
   </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/chompa111/saturnGL/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
   
   <ul class="md-nav__list" data-md-scrollfix>
     
@@ -462,6 +488,10 @@
             <article class="md-content__inner md-typeset">
               
                 
+                  <a href="https://github.com/chompa111/saturnGL/edit/master/docs/docpages/task/task.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
                 
                 <p><html lang="en"></p>
 <script src="https://pagecdn.io/lib/ace/1.4.12/ace.js" type="text/javascript" charset="utf-8"></script>
@@ -561,6 +591,127 @@ se sua apresentação estiver numa taxa de <code>30 quadros/segundo</code> entã
 <script src='../../../javascripts/codeblock.js'></script>
 <script >
     createCodeBlock('divitest2','4');
+</script>
+
+<p></html></p>
+<p><html>
+<button id="myBtn">Open Modal</button></p>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div id="pepemujica"class="modal-content">
+    <span class="close">&times;</span>
+
+  </div>
+
+</div>
+<script >
+    // Get the modal
+var modal = document.getElementById("myModal");
+    createStaticBlock('pepemujica','5',`
+package graphical.basics.task;
+
+import graphical.basics.presentation.Presentation;
+
+import java.util.function.Function;
+import java.util.function.Supplier;
+
+public interface Task {
+
+    void setup();
+
+    void step();
+
+    boolean isDone();
+
+    default Task andThen(Task t2) {
+        if (this instanceof SequenceTask) {
+            ((SequenceTask) this).addTask(t2);
+            return this;
+        } else {
+            return new SequenceTask(this, t2);
+        }
+    }
+
+    default Task andThen(Supplier<Task> supplier) {
+        return andThen(new ContextSetupTask(supplier));
+    }
+
+    default Task parallel(Task t2) {
+        if (this instanceof ParalelTask) {
+            ((ParalelTask) this).addTask(t2);
+            return this;
+        } else {
+            return new ParalelTask(this, t2);
+        }
+    }
+
+    default Task parallel(Supplier<Task> supplier) {
+        return parallel(new ContextSetupTask(supplier));
+    }
+
+    default Task repeat(int times) {
+        return new RepeatTask(times, this);
+    }
+
+    default Task wait(int steps) {
+        return this.andThen(new WaitTask(steps));
+    }
+
+    default Task step(Runnable runnable) {
+        return this.andThen(new SingleStepTask(runnable));
+    }
+
+    static void consume(Task task) {
+        task.setup();
+        while (!task.isDone()) {
+            task.step();
+        }
+    }
+
+    default void execute() {
+        Presentation.staticReference.execute(this);
+    }
+
+    default InterruptableTask executeInBackGround() {
+        return Presentation.staticReference.backGroundTask.append(this);
+    }
+
+
+//
+//    public static <T extends Task> Collector<T, ?, ParalelTask> toList() {
+//        return new Collectors.CollectorImpl(ArrayList::new, List::add, (left, right) -> {
+//            left.addAll(right);
+//            return left;
+//        }, CH_ID);
+//    }
+
+}
+        `);
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 </script>
 
 <p></html></p>
