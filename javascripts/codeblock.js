@@ -1,3 +1,6 @@
+
+
+
 function createCodeBlock(father,key,code){
 
 	var container=document.getElementById(father)
@@ -14,7 +17,7 @@ function createCodeBlock(father,key,code){
 	container.appendChild(acerequire);
 	var aceconfig = document.createElement('script');
 	aceconfig.setAttribute('id','script1');
-	aceconfig.innerHTML='var editor = ace.edit("editor'+key+'");editor.setTheme("ace/theme/monokai");editor.session.setMode("ace/mode/java");editor.setOptions({maxLines: 15,minLines: 8,fontSize: 15,enableBasicAutocompletion: true,enableLinking: true});'
+	aceconfig.innerHTML='var editor = ace.edit("editor'+key+'");editor.setTheme("ace/theme/monokai");editor.session.setMode("ace/mode/java");editor.setOptions({maxLines: 15,minLines: 8,fontSize: 15,enableBasicAutocompletion: true,enableLinking: true, enableLiveAutocompletion:true});'
 	container.appendChild(aceconfig);
 
 
@@ -74,6 +77,7 @@ function createCodeBlock(father,key,code){
 	});
 
 	ace.edit('editor'+key).completers = [staticWordCompleter]
+
 
 var Range = require("ace/range").Range, markerId
 var handler = function(e){
@@ -162,33 +166,8 @@ function removeMessages(key){
 
 var staticWordCompleter = {
     getCompletions: function(editor, session, pos, prefix, callback) {
-        
-        let completions={
-        	"add":"void add(Gobject g) Presentation",
-        	"add ":"void add(Behavior b) Presentation",
-        	"parallel":"Task parallel(Task t) Task",
-        	"andThen":"Task andThen(Task t) Task",
-        	"repeat":"Task repeat(int times) Task",
-        	"execute()":"void execute() Task",
-        	"executeInBackGround()":"void executeInBackGround() Task",
-        	"move":"Task move(double x, double y) Gobject",
-        	"changeColor":"Task changeColor(Color c) Gobject",
-        	"rotate":"Task rotate(double radians) Gobject",
-        	"scale":"Task scale(double amount) Gobject",
-        	"seconds":"int seconds(double s) Presentation",
-        	"CircleBuilder" :"",
-        	"Task" :""
-        }
-
-        
-         callback(null, Object.keys(completions).map(function(word,index) {
-            return {
-                caption: word,
-                value: word,
-                meta: completions[word]
-            };
-        }));
-
+    	console.log(prefix)
+        callback(null, getSuggestion(editor.getValue(),pos.row,pos.column));
     }
 }
 
@@ -359,7 +338,6 @@ var rawCodeBinding={
 'DoubleHolder':'https://raw.githubusercontent.com/chompa111/saturnGL/master/src/main/java/graphical/basics/value/DoubleHolder.java',
 'NumberHolder':'https://raw.githubusercontent.com/chompa111/saturnGL/master/src/main/java/graphical/basics/value/NumberHolder.java'
         }
-
 
 
 
